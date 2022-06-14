@@ -6,7 +6,8 @@
 html,
 body {
     height: 100%;
-    margin: 0;
+    max-width: 1300px;
+    margin: auto;
 }
 .navbar{
     margin: 0;
@@ -19,6 +20,7 @@ body {
     padding: 10px;
 }
 .notes {
+   
     height: 100%;
 }
 
@@ -26,7 +28,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 .content{
-    height: 100vh;
+    height: 90vh;
     display: flex;
 }
 .notes__sidebar {
@@ -69,11 +71,18 @@ body {
     background-color:rgba(127, 255, 212, 0.126);
     cursor: pointer;
 }
+.notes__list-item:hover{
+    background-color:rgba(29, 85, 66, 0.126);
+}
 
 .notes__list-item--selected {
-    background: #d8ec3e;
+    background: rgb(214, 239, 52);
     border-radius: 7px;
     font-weight: bold;
+}
+.notes__list-item--selected:hover{
+    background: rgb(208, 228, 77);
+
 }
 
 .notes__small-title,
@@ -105,6 +114,9 @@ body {
 }
 
 .notes__body{
+    padding: 10px;
+    border-radius: 10px;
+    background: #f0eff3;
     font-style: italic;
 
 }
@@ -126,6 +138,18 @@ body {
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
+}
+.save-btn{
+    cursor: pointer;
+    margin: 10px 0 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    width: 100px;
+    height: 40px;
 }
 /* ===== Scrollbar CSS ===== */
   /* Firefox */

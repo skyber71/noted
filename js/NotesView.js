@@ -28,6 +28,7 @@ export default class NotesView {
         <div class="notes__preview">
             <input class="notes__title" type="text" placeholder="Enter a title...">
             <textarea class="notes__body">I am the notes body...</textarea>
+            <button class="save-btn">Save</button>
         </div>
     </div>
         `;
