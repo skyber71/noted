@@ -6,14 +6,30 @@ export default class NotesView {
         this.onNoteEdit = onNoteEdit;
         this.onNoteDelete = onNoteDelete;
         this.root.innerHTML = `
-            <div class="notes__sidebar">
-                <button class="notes__add" type="button">Add Note</button>
-                <div class="notes__list"></div>
+        <nav class="navbar">
+            <h2>Noted</h2>
+        </nav>
+        <div class="content">
+        <div class="notes__sidebar">
+            <button class="notes__add" type="button">+ Add Note</button>
+            <div class="notes__list">
+                <div class="notes__list-item notes__list-item--selected">
+                    <div class="notes_small_title_delete">
+                        <div class="notes__small-title">Lecture Notes</div>
+                        <i class="fa-solid fa-copy"></i>
+                        <i class="fa-solid fa-trash notes_delete"></i>
+                    </div>
+                    
+                    <div class="notes__small-body">I learnt nothing today.</div>
+                    <div class="notes__small-updated">Thursday 3:30pm</div>
+                </div>
             </div>
-            <div class="notes__preview">
-                <input class="notes__title" type="text" placeholder="New Note...">
-                <textarea class="notes__body">Take Note...</textarea>
-            </div>
+        </div>
+        <div class="notes__preview">
+            <input class="notes__title" type="text" placeholder="Enter a title...">
+            <textarea class="notes__body">I am the notes body...</textarea>
+        </div>
+    </div>
         `;
 
         const btnAddNote = this.root.querySelector(".notes__add");
@@ -41,7 +57,10 @@ export default class NotesView {
 
         return `
             <div class="notes__list-item" data-note-id="${id}">
-                <div class="notes__small-title">${title}</div>
+                <div class="notes_small_title_delete">
+                        <div class="notes__small-title">${title}</div>
+                        <i class="fa-solid fa-trash notes_delete"></i>
+                    </div>
                 <div class="notes__small-body">
                     ${body.substring(0, MAX_BODY_LENGTH)}
                     ${body.length > MAX_BODY_LENGTH ? "..." : ""}
@@ -79,6 +98,8 @@ export default class NotesView {
                 }
             });
         });
+
+
     }
 
     updateActiveNote(note) {
