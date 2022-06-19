@@ -19,7 +19,7 @@ export default class App {
 
         if (notes.length > 0) {
             this._setActiveNote(notes[0]);
-            document.getElementById("empty").style.visibility = "hidden";
+            document.getElementById("empty").style.display = "none";
             
         }else{
             document.getElementById("count").style.visibility = "hidden";
