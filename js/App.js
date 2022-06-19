@@ -12,11 +12,17 @@ export default class App {
 
     _refreshNotes() {
         const notes = NotesAPI.getAllNotes();
+        document.getElementById("count").innerHTML = "Total notes: " + notes.length;
+
 
         this._setNotes(notes);
 
         if (notes.length > 0) {
             this._setActiveNote(notes[0]);
+            document.getElementById("empty").style.visibility = "hidden";
+            
+        }else{
+            document.getElementById("count").style.visibility = "hidden";
         }
     }
 
@@ -41,7 +47,9 @@ export default class App {
                 const newNote = {
                     title: "Title",
                     body: "Your note..."
+                    
                 };
+                location.reload();
 
                 NotesAPI.saveNote(newNote);
                 this._refreshNotes();
@@ -52,7 +60,6 @@ export default class App {
                     title,
                     body
                 });
-
                 this._refreshNotes();
             },
             onNoteDelete: noteId => {

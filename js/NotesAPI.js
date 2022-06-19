@@ -6,6 +6,8 @@ export default class NotesAPI {
             return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
         });
     }
+    
+    
 
     static saveNote(noteToSave) {
         const notes = NotesAPI.getAllNotes();
@@ -21,8 +23,13 @@ export default class NotesAPI {
             noteToSave.updated = new Date().toISOString();
             notes.push(noteToSave);
         }
+        
 
         localStorage.setItem("notesapp-notes", JSON.stringify(notes));
+    }
+    static getCount(){
+        const notes1 = NotesAPI.getAllNotes();
+        return notes1.length;
     }
 
     static deleteNote(id) {
@@ -30,5 +37,6 @@ export default class NotesAPI {
         const newNotes = notes.filter(note => note.id != id);
 
         localStorage.setItem("notesapp-notes", JSON.stringify(newNotes));
+        location.reload();
     }
 }

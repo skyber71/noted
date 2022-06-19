@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&display=swap');
 
-*{
-    max-width: 1300px;
-}
+
 html,
 body {
     height: 100%;
-    max-width: 1300px;
-    margin: auto;
+    
+    margin: 0;
 }
 .navbar{
+    max-width: 100vw;
     margin: 0;
     background-color: rgb(214, 239, 52);
     text-align: center;
@@ -18,6 +17,15 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     padding: 10px;
+}
+.empty{
+    color: #908282;
+    text-align: center;
+    font-size: 30px;
+}
+.empty i{
+    
+    font-size: 70px;
 }
 .notes {
    
@@ -48,6 +56,7 @@ body {
     padding: 10px;
 }
 .notes__add {
+    transition: 0.2s all;
     background: dodgerblue;
     border: none;
     border-radius: 7px;
@@ -61,7 +70,14 @@ body {
 }
 
 .notes__add:hover {
+    -webkit-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+-moz-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
     background: rgb(5, 127, 248);
+}
+.notes__add:active{
+    transform: scale(0.8);
+
 }
 
 .notes__list-item {
@@ -72,6 +88,9 @@ body {
     cursor: pointer;
 }
 .notes__list-item:hover{
+    -webkit-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+-moz-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
     background-color:rgba(29, 85, 66, 0.126);
 }
 
@@ -81,6 +100,9 @@ body {
     font-weight: bold;
 }
 .notes__list-item--selected:hover{
+    -webkit-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+-moz-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
     background: rgb(208, 228, 77);
 
 }
@@ -133,15 +155,23 @@ body {
 }
 
 .notes__body {
+    
     flex-grow: 1;
     font-size: 1.2em;
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
 }
+.notes__body:hover{
+    -webkit-box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
+-moz-box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
+box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
+}
 .save-btn{
+    transition: 0.2s all;
+    
     cursor: pointer;
-    margin: 10px 0 0 auto;
+    margin: 15px 0 0 auto;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     background-color: dodgerblue;
@@ -150,6 +180,11 @@ body {
     color: white;
     width: 100px;
     height: 40px;
+}
+.save-btn:hover{
+    -webkit-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
 }
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
@@ -173,9 +208,31 @@ body {
     border: 3px solid #ffffff;
   }
 
+.foot{
+    max-width: 100vw;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+.foot a{
+    text-decoration: none;
+    color: dodgerblue;
+}
+.foot a:hover{
+    text-decoration: underline;
+}
 
 
 
 
+.save-btn:active{
+    transform: scale(0.7);
 
-  
+}
+
+.notes_delete:hover{
+   color: #5a5050;
+}
