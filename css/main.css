@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 .navbar{
-    max-width: 100vw;
+    width: 100vw;
     margin: 0;
     background-color: rgb(214, 239, 52);
     text-align: center;
@@ -27,10 +27,9 @@ body {
     
     font-size: 70px;
 }
-.notes {
-   
+/* .notes {
     height: 100%;
-}
+} */
 
 .notes * {
     font-family: 'Open Sans', sans-serif;
@@ -41,10 +40,10 @@ body {
 }
 .notes__sidebar {
     border-right: 2px solid #dddddd;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     overflow-y: auto;
     padding: 1em;
-    width: 320px;
+    /* width: 320px; */
 }
 .notes_small_title_delete{
     display: flex;
@@ -186,14 +185,13 @@ box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
     -moz-box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
     box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
 }
-/* ===== Scrollbar CSS ===== */
-  /* Firefox */
+
   * {
     scrollbar-width: auto;
     scrollbar-color: dodgerblue #ffffff;
   }
 
-  /* Chrome, Edge, and Safari */
+
   *::-webkit-scrollbar {
     width: 13px;
   }
@@ -235,4 +233,44 @@ box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
 
 .notes_delete:hover{
    color: #5a5050;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    .content{
+        display: block;
+    }
+    .notes__sidebar{
+        display:grid;
+        border: none;
+        padding: 0;
+        overflow-y: visible;
+        overflow-x: auto;
+        width: 100%;
+    }
+    .notes__add{
+        margin: 0 auto;
+        width: 300px;
+    }
+    .notes__list-item{
+        
+        
+
+        width: 300px;
+    }
+    .notes_list{
+        /* overflow-x: auto; */
+        display: flex;
+    }
+    
+    .notes__add{
+        margin: 10px auto;
+    }
+    #count{
+        padding: 10px;
+        margin: auto;
+    }
+
+    
 }

@@ -11,35 +11,37 @@ export default class NotesView {
         </nav>
         <div class="content">
             <div class="notes__sidebar">
-            <button class="notes__add" type="button">+ Add Note</button>
-            <p id="count"></p>
-            <div class="notes__list">
-                <div class="notes__list-item notes__list-item--selected">
-                    <div class="notes_small_title_delete">
-                        <div class="notes__small-title">Lecture Notes</div>
-                        <i class="fa-solid fa-copy"></i>
-                        <i class="fa-solid fa-trash notes_delete"></i>
+                <button class="notes__add" type="button">+ Add Note</button>
+                <p id="count"></p>
+                <div class="notes__list">
+                    <div class="notes__list-item notes__list-item--selected">
+                        <div class="notes_small_title_delete">
+                            <div class="notes__small-title">Lecture Notes</div>
+                            <i class="fa-solid fa-copy"></i>
+                            <i class="fa-solid fa-trash notes_delete"></i>
+                        </div>
+                        <div class="notes__small-body">I learnt nothing today.</div>
+                        <div class="notes__small-updated">Thursday 3:30pm</div>
                     </div>
-                    <div class="notes__small-body">I learnt nothing today.</div>
-                    <div class="notes__small-updated">Thursday 3:30pm</div>
+                </div>
+                <div class="empty" id="empty">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <p>Nothing to show :(</p>
                 </div>
             </div>
-            <div class="empty" id="empty">
-                <i class="fa-solid fa-folder-open"></i>
-                <p>Nothing to show :(</p>
+            <div class="notes__preview">
+                <input class="notes__title" type="text" placeholder="Enter a title...">
+                <textarea class="notes__body">I am the notes body...</textarea>
+                <button class="save-btn">Save</button>
             </div>
         </div>
-        <div class="notes__preview">
-            <input class="notes__title" type="text" placeholder="Enter a title...">
-            <textarea class="notes__body">I am the notes body...</textarea>
-            <button class="save-btn">Save</button>
-        </div>
-        </div>
         <footer class="foot">
-        <P>The project is developed by <a target="blank" href="https://www.linkedin.com/in/iamkiranyadav/">Kiran Yadav</a>| <i class="fa-regular fa-copyright"></i> 2022 </P>
-        
+            <P>The project is developed by <a target="blank" href="https://www.linkedin.com/in/iamkiranyadav/">Kiran Yadav</a>|
+            <i class="fa-regular fa-copyright"></i> 2022 </P>
         </footer>
-        
+
+
+
         `;
 
         const btnAddNote = this.root.querySelector(".notes__add");
