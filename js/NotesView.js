@@ -35,14 +35,15 @@ export default class NotesView {
                 <button class="save-btn">Save</button>
             </div>
         </div>
-        <footer class="foot">
-            <P>The project is developed by <a target="blank" href="https://www.linkedin.com/in/iamkiranyadav/">Kiran Yadav</a>|
-            <i class="fa-regular fa-copyright"></i> 2022 </P>
-        </footer>
+        
 
 
 
         `;
+        // <div class="foot">
+        //     <P>The project is developed by <a target="blank" href="https://www.linkedin.com/in/iamkiranyadav/">Kiran Yadav</a>|
+        //     <i class="fa-regular fa-copyright"></i> 2022 </P>
+        // </div>
 
         const btnAddNote = this.root.querySelector(".notes__add");
         const inpTitle = this.root.querySelector(".notes__title");
@@ -69,6 +70,7 @@ export default class NotesView {
 
     _createListItemHTML(id, title, body, updated) {
         const MAX_BODY_LENGTH = 60;
+        const MAX_TITLE_LENGTH = 20;
         if(title.length === 0){
             title = "Empty note...";
             if(body.length === 0){
@@ -81,7 +83,10 @@ export default class NotesView {
         return `
             <div class="notes__list-item" data-note-id="${id}">
                 <div class="notes_small_title_delete">
-                        <div class="notes__small-title">${title}</div>
+                        <div class="notes__small-title">
+                        ${title.substring(0, MAX_TITLE_LENGTH)}${title.length > MAX_TITLE_LENGTH ? "..." : ""}
+
+                        </div>
                         <i class="fa-solid fa-trash notes_delete"></i>
                     </div>
                 <div class="notes__small-body">

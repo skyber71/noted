@@ -4,7 +4,6 @@
 html,
 body {
     height: 100%;
-    
     margin: 0;
 }
 .navbar{
@@ -28,6 +27,7 @@ body {
     font-size: 70px;
 }
 .notes {
+    display: flexbox;
     height: 100%;
 }
 
@@ -35,7 +35,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 .content{
-    height: 90vh;
+    height: 100vh;
     display: flex;
 }
 .notes__sidebar {
@@ -112,6 +112,7 @@ box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.4);
 }
 
 .notes__small-title {
+    overflow-x: hidden;
     font-size: 1.2em;
 }
 
@@ -208,8 +209,8 @@ box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
 
 .foot{
     /* max-width: 100vw; */
-    margin: 10px auto;
-    height: 50px;
+    margin: auto auto 0 auto ;
+    /* height: 50px; */
     text-align: center;
     padding: 5px;
     color: white;
@@ -257,13 +258,9 @@ box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
         min-height: 150px;
         display: block;
         margin: 10px;
-        
-        
-
-        min-width: 150px;
+        min-width: 200px;
     }
     .notes__list{
-        
         width: 100%;
         overflow-x: auto;
         display: flex;
@@ -280,9 +277,24 @@ box-shadow: 0px 0px 16px -3px rgba(0,0,0,0.4);
     .notes__small-body{
         overflow-y:visible;
     }
-    .notes__body{
-        height: 30vh;
+    .notes__small-title,.notes__small-body{
+        width: 70%;
+        overflow-x: hidden;
+
     }
+    .notes__title{
+        font-size: 30px;
+        margin: auto;
+    }
+    .notes__body{
+        position: relative;
+        right: 7px;
+        margin: 10px auto;
+    }
+    .notes__preview{
+        height: 40%;
+    }
+    
 }
 
     
