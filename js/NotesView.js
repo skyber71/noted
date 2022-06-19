@@ -7,7 +7,7 @@ export default class NotesView {
         this.onNoteDelete = onNoteDelete;
         this.root.innerHTML = `
         <nav class="navbar">
-            <h2>Noted</h2>
+            <h2>NoteD</h2>
         </nav>
         <div class="content">
             <div class="notes__sidebar">
