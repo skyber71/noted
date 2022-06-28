@@ -35,10 +35,6 @@ export default class NotesView {
                 <button class="save-btn">Save</button>
             </div>
         </div>
-        
-
-
-
         `;
 
         const btnAddNote = this.root.querySelector(".notes__add");
