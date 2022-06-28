@@ -40,10 +40,6 @@ export default class NotesView {
 
 
         `;
-        // <div class="foot">
-        //     <P>The project is developed by <a target="blank" href="https://www.linkedin.com/in/iamkiranyadav/">Kiran Yadav</a>|
-        //     <i class="fa-regular fa-copyright"></i> 2022 </P>
-        // </div>
 
         const btnAddNote = this.root.querySelector(".notes__add");
         const inpTitle = this.root.querySelector(".notes__title");
