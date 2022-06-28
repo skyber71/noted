@@ -1,6 +1,6 @@
 ## NoteD
 
-The website is live here👉 <a href="https://skyber71.github.io/noted/">https://skyber71.github.io/noted/</a>
+The website is live here👉 <a href="https://skyber71.github.io/noted/" target="_blank">https://skyber71.github.io/noted/</a>
 
 <table>
   <tr>
