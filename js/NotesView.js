@@ -5,7 +5,7 @@ export default class NotesView {
         this.onNoteAdd = onNoteAdd;
         this.onNoteEdit = onNoteEdit;
         this.onNoteDelete = onNoteDelete;
-        this.root.innerHTML = `
+        const rootHtml = `
         <nav class="navbar">
             <h2>NoteD</h2>
         </nav>
@@ -36,16 +36,13 @@ export default class NotesView {
             </div>
         </div>
         `;
+        this.root.innerHTML = rootHtml;
 
         const btnAddNote = this.root.querySelector(".notes__add");
         const inpTitle = this.root.querySelector(".notes__title");
         const inpBody = this.root.querySelector(".notes__body");
         const savBtn = this.root.querySelector(".save-btn");
-        
-        
-
-        
-
+   
         btnAddNote.addEventListener("click", () => {
             this.onNoteAdd();
         });
@@ -54,9 +51,7 @@ export default class NotesView {
             const updatedTitle = inpTitle.value.trim();
             const updatedBody = inpBody.value.trim();
             this.onNoteEdit(updatedTitle, updatedBody);
-
         })
-
         this.updateNotePreviewVisibility(false);
     }
 
@@ -70,73 +65,56 @@ export default class NotesView {
                 location.reload();
             }
         }
-        
+        const htmlFile = `
+        <div class="notes__list-item" data-note-id="${id}">
+            <div class="notes_small_title_delete">
+                    <div class="notes__small-title">
+                    ${title.substring(0, MAX_TITLE_LENGTH)}${title.length > MAX_TITLE_LENGTH ? "..." : ""}
 
-        return `
-            <div class="notes__list-item" data-note-id="${id}">
-                <div class="notes_small_title_delete">
-                        <div class="notes__small-title">
-                        ${title.substring(0, MAX_TITLE_LENGTH)}${title.length > MAX_TITLE_LENGTH ? "..." : ""}
-
-                        </div>
-                        <i class="fa-solid fa-trash notes_delete"></i>
                     </div>
-                <div class="notes__small-body">
-                    ${body.substring(0, MAX_BODY_LENGTH)}
-                    ${body.length > MAX_BODY_LENGTH ? "..." : ""}
+                    <i class="fa-solid fa-trash notes_delete"></i>
                 </div>
-                <div class="notes__small-updated">
-                    ${updated.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}
-                </div>
+            <div class="notes__small-body">
+                ${body.substring(0, MAX_BODY_LENGTH)}
+                ${body.length > MAX_BODY_LENGTH ? "..." : ""}
             </div>
-            
-        `;
+            <div class="notes__small-updated">
+                ${updated.toLocaleString(undefined, { 
+                    dateStyle: "full", timeStyle: "short" 
+                })}
+            </div>
+        </div>
+        
+    `;
+        return htmlFile;
     }
 
+
     updateNoteList(notes) {
-        const notesListContainer = this.root.querySelector(".notes__list");
-
-        
+        const notesListContainer = this.root.querySelector(".notes__list"); 
         notesListContainer.innerHTML = "";
-
         for (const note of notes) {
             const html = this._createListItemHTML(note.id, note.title, note.body, new Date(note.updated));
-
             notesListContainer.insertAdjacentHTML("beforeend", html);
         }
-
-
         notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
-            noteListItem.addEventListener("click", () => {
-                this.onNoteSelect(noteListItem.dataset.noteId);
-            });
+            noteListItem.addEventListener("click", () => {this.onNoteSelect(noteListItem.dataset.noteId)});
         });
 
         notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.querySelectorAll(".notes_delete").forEach(notesDelete =>{
                 notesDelete.addEventListener("click", ()=>{
                     const doDelete = confirm("Are you sure you want to delete this note?");
-                    if (doDelete) {
-                    this.onNoteDelete(noteListItem.dataset.noteId);
-                    }
-                }
-                )
+                    if (doDelete) {this.onNoteDelete(noteListItem.dataset.noteId);}
+                })
             });
         });
-
-        
-
-
     }
 
     updateActiveNote(note) {
         this.root.querySelector(".notes__title").value = note.title;
         this.root.querySelector(".notes__body").value = note.body;
-
-        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {
-            noteListItem.classList.remove("notes__list-item--selected");
-        });
-
+        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {noteListItem.classList.remove("notes__list-item--selected");});
         this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected");
     }
 
