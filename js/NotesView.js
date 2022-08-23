@@ -37,7 +37,6 @@ export default class NotesView {
         </div>
         `;
         this.root.innerHTML = rootHtml;
-
         const btnAddNote = this.root.querySelector(".notes__add");
         const inpTitle = this.root.querySelector(".notes__title");
         const inpBody = this.root.querySelector(".notes__body");
@@ -114,7 +113,9 @@ export default class NotesView {
     updateActiveNote(note) {
         this.root.querySelector(".notes__title").value = note.title;
         this.root.querySelector(".notes__body").value = note.body;
-        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {noteListItem.classList.remove("notes__list-item--selected");});
+        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {
+            noteListItem.classList.remove("notes__list-item--selected");
+        });
         this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected");
     }
 
