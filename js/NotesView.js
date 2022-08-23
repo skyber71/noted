@@ -55,8 +55,8 @@ export default class NotesView {
     }
 
     _createListItemHTML(id, title, body, updated) {
-        const MAX_BODY_LENGTH = 60;
-        const MAX_TITLE_LENGTH = 20;
+        const maxBodyLength = 60;
+        const maxTitleLength = 20;
         if(title.length === 0){
             title = "Empty note...";
             if(body.length === 0){
@@ -64,27 +64,24 @@ export default class NotesView {
                 location.reload();
             }
         }
-        const htmlFile = `
-        <div class="notes__list-item" data-note-id="${id}">
+        const htmlFile = 
+        `<div class="notes__list-item" data-note-id="${id}">
             <div class="notes_small_title_delete">
                     <div class="notes__small-title">
-                    ${title.substring(0, MAX_TITLE_LENGTH)}${title.length > MAX_TITLE_LENGTH ? "..." : ""}
-
+                    ${title.substring(0, maxTitleLength)}${title.length > maxTitleLength ? "..." : ""}
                     </div>
                     <i class="fa-solid fa-trash notes_delete"></i>
                 </div>
             <div class="notes__small-body">
-                ${body.substring(0, MAX_BODY_LENGTH)}
-                ${body.length > MAX_BODY_LENGTH ? "..." : ""}
+                ${body.substring(0, maxBodyLength)}
+                ${body.length > maxBodyLength ? "..." : ""}
             </div>
             <div class="notes__small-updated">
                 ${updated.toLocaleString(undefined, { 
                     dateStyle: "full", timeStyle: "short" 
                 })}
             </div>
-        </div>
-        
-    `;
+        </div>`;
         return htmlFile;
     }
 
