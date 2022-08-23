@@ -1,4 +1,5 @@
 export default class NotesAPI {
+  
   static saveNote(noteToSave) {
     const notes = NotesAPI.getAllNotes();
     const existing = notes.find((note) => note.id == noteToSave.id);
@@ -21,7 +22,7 @@ export default class NotesAPI {
     return notes.sort((a, b) => {return new Date(a.updated) > new Date(b.updated) ? -1 : 1;});
   };
 
-  static getCount() {
+  static getCount(){
     const notesCount = NotesAPI.getAllNotes();
     return notesCount.length;
   };
