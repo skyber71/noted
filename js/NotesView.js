@@ -100,8 +100,18 @@ export default class NotesView {
         notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.querySelectorAll(".notes_delete").forEach(notesDelete =>{
                 notesDelete.addEventListener("click", ()=>{
-                    const doDelete = confirm("Are you sure you want to delete this note?");
-                    if (doDelete) {this.onNoteDelete(noteListItem.dataset.noteId);}
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are sure you want to delete the note?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true
+                      })
+                      .then((willDelete) => {
+                        if (willDelete) {
+                            this.onNoteDelete(noteListItem.dataset.noteId);
+                        } 
+                      });
                 })
             });
         });
