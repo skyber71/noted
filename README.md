@@ -1,5 +1,13 @@
 ## NoteD
 
+- Implemented CRUD functionalities, enabling users to create, update, and manage notes with timestamps.
+- Employed HTML, CSS, JQuery and pure JavaScript to create a visually appealing and user-friendly interface.
+
+## Tech Used: 
+- HTML
+- CSS
+- Vanilla JavaScript (Pure JavaScript)
+
 The website is live here👉 <a href="https://skyber71.github.io/noted/" target="_blank">https://skyber71.github.io/noted/</a>
 
 <table>
